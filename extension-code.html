@@ -1,0 +1,75 @@
+.extfloat {
+  position: fixed;
+  right: 0;
+  bottom: 24px;
+  z-index: 50000;
+  display: none;
+  align-items: center;
+  box-sizing: border-box;
+  margin-right: 25px;
+  border-radius: 5px;
+  padding: 10px 20px 10px 15px;
+  width: 220px;
+  font-family: Roboto, sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #fff;
+  background-color: #35a600;
+}
+
+@media (min-width: 1025px) {
+  .extfloat {
+    display: flex;
+    -webkit-animation: fadeInUp .7s ease;
+    animation: fadeInUp .7s ease;
+  }
+}
+
+.floatimg {
+  margin-right: 13px;
+}
+
+.floattext {
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.floatheader {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+<a href="#" class="extfloat" id="extfloat" target="_blank">
+        <span class="floatimg">
+            <img src="" id="extimg" alt="" width="50" height="50">
+        </span>
+        <span class="floattext" id="floattext">
+            <span class="floatheader">DOWNLOAD</span>
+        </span>
+    </a>
+<script>
+        function fnBrowserDetect() {
+            let userAgent = navigator.userAgent;
+
+            if (userAgent.match(/chrome|chromium|crios/i)) {
+                document.getElementById("extimg").src = "images/chrome-icon.svg";
+                document.getElementsById("extfloat").href="https://chrome.google.com/webstore/detail/youtube-thumbnail-downloa/dcgmploloagofmkocbkadnldikeehfpl?hl=en-US";
+                document.getElementsById("floattext").innerHTML = "Chrome Extension";
+                
+
+            } else if (userAgent.match(/firefox|fxios/i)) {
+                document.getElementById("extimg").src = "images/firefox-icon.svg";
+                document.getElementsById("floattext").innerHTML = "Firefox Extension";
+                document.getElementsById("extfloat").href="https://addons.mozilla.org/en-US/firefox/addon/youtube-thumbnail-download/";
+            }
+            // } else if (userAgent.match(/safari/i)) {
+            //     browserName = "safari";
+            // } else if (userAgent.match(/opr\//i)) {
+            //     browserName = "opera";
+            // } else if (userAgent.match(/edg/i)) {
+            //     browserName = "edge";
+             else {
+                document.getElementById("extfloat").style.display = "none!important";
+            }
+        }
+    </script>
